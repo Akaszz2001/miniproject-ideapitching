@@ -16,7 +16,7 @@ app.use(express.json());
  
 
 //database connection
-const conn = require('./connection')
+const conn = require('./databaseConnection/connection')
 conn.connect((err)=>{
     if(err)
     throw err;
@@ -27,10 +27,11 @@ conn.connect((err)=>{
 
 //routes
 
-app.use('/login',require('../routes/login'))
-
+app.use('/login',require('./routes/login'))
+app.use('/signup',require('./routes/signup'))
 
 //server local port
 app.listen(PORT,()=>{
     console.log(`Server is running on ${PORT}`);
 })
+
