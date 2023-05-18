@@ -1,15 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React,{useState} from 'react'
 import Navbar from '../Navbar/Navbar'
+import Axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 function Signup() {
     const [name,setName]=useState('')
     const[email,setEmail]=useState('')
     const[pwd,setPwd]=useState('')
+    const navigate = useNavigate()
     const send=(e)=>{
             e.preventDefault()
-
-    }
+            Axios.post("http://localhost:5000/signup",{
+                uName:name,
+                uEmail:email,
+                uPaswrd:pwd
+            })
+        navigate('/')
+        }
   return (
     <div>
       <Navbar/>
@@ -37,7 +45,8 @@ function Signup() {
                         type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="password"
-                        placeholder="Password" />
+                        placeholder="Password"
+                        onChange={(e)=>{setPwd(e.target.value)}} />
                     
 
                     <button
