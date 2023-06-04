@@ -1,24 +1,28 @@
 const express = require('express');
-const bcrypt=require('bcrypt')
-const saltRounds=5
-const conn = require('../databaseConnection/connection');
+const signup = require('../databasehelpers/signupHelper/sHelper');
 
 
 const router=express.Router()
 
 router.post('/',async(req,res)=>{
+    
     const uname=req.body.uName;
     const email=req.body.uEmail;
     const pass=req.body.uPaswrd
-    const hPass=await bcrypt.hash(pass,saltRounds)
-    var sql="INSERT INTO signup(name,email,password,isAdmin) VALUES(?,?,?,?)"
-    conn.query(sql,[uname,email,hPass,true],((err,res)=>{
-            if(err){
-                throw err;
-            }else{
-                console.log("data inserted");
-            }
-    }))
+
+   
+    //signup function for create new user
+    signup(uname,email,pass).then((result)=>{
+
+        if(result==true){
+            return res.json({userEnrol:true})
+        }else{
+            return res.json({Message:"This email is already exists"})
+        }
+              
+    }).catch(err=>{
+        return res.status(404).json({error:err})
+    })
 })
 
 module.exports=router
