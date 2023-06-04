@@ -1,8 +1,21 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React,{useState} from "react";
+import  Axios  from "axios";
+import React from "react";
+import { useNavigate } from "react-router";
 
-function Navbar() {
-  
+function Navbar(props) {
+  const user=props.data
+  const navigate=useNavigate()
+const logout=()=>{
+  if(user){
+    Axios.get('http://localhost:5000/logout').then(res=>{
+      if(res.data.Login===false){
+          alert("logout successfully")
+          navigate('/login')
+      }
+    })
+  }
+}
   return (
     <div>
       <nav className="p-3 bg-cyan-200 shadow md:flex md:items-center md:justify-between">
@@ -19,7 +32,19 @@ function Navbar() {
           <ion-icon name="apps-outline"></ion-icon>
           </span>
         </div>
-        <ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+      {user ?  <ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+          <li className="mx-4 my my-6 md:my-0">
+            <a href="" className="text-xl hover:text-cyan-500 duration-500">
+            user
+            </a>
+          </li>
+          <li className="mx-4 my my-6 md:my-0">
+            <a className="text-xl hover:text-cyan-500 duration-500" onClick={logout}>
+              logout
+            </a>
+          </li>
+          
+        </ul> : <ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
           <li className="mx-4 my my-6 md:my-0">
             <a href="/login" className="text-xl hover:text-cyan-500 duration-500">
               login
@@ -31,7 +56,8 @@ function Navbar() {
             </a>
           </li>
           
-        </ul>
+        </ul>}
+       
       </nav>
     </div>
   );

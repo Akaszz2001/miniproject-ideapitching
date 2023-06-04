@@ -15,8 +15,15 @@ function Signup() {
                 uName:name,
                 uEmail:email,
                 uPaswrd:pwd
+            }).then((res)=>{
+                if(res.data.userEnrol){
+                    alert("Successfully created new account")
+                    navigate('/login')
+                }else if(res.data.Message){
+                    alert("This email is already used")
+                }
             })
-        navigate('/')
+        
         }
   return (
     <div>

@@ -1,16 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 function Login() {
   const [email,setEmail]=useState("")
   const [pwd,setPwd]=useState("")
+  const navigate=useNavigate()
+  
+
+  Axios.defaults.withCredentials=true
+  useEffect(()=>{
+    Axios.get('http://localhost:5000').then(res=>{
+      if(res.data.valid===true){
+        console.log("home page user: "+res.data.userData);
+          navigate('/')
+      }else if(res.data.valid===false){
+        navigate('/login')
+      }
+    })
+  })
   const send=(e)=>{
     e.preventDefault()  
       Axios.post("http://localhost:5000/login",{
         email:email,
         password:pwd
-      }).then((res)=>{
-        console.log(res);
+      }).then(res=>{ 
+       if(res.data.Login===true){
+        alert("sucessfully logined")
+          navigate('/') 
+       }else if(res.data.Login===false){
+        alert("Password is mismatch")
+       }else if(res.data.Message){
+        alert("email not exist")
+       }
       })
   }
   return (
