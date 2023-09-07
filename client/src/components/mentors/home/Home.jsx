@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import Axios from "axios";
-import Navbar from "../Navbar/Navbar";
-import { useNavigate } from "react-router-dom";
+import React,{useState,useEffect} from "react";
 
+import Axios  from "axios";
+import { useNavigate } from "react-router-dom";
+import Mentornavbar from "../../Navbar/Mentornavbar";
 function Home() {
   const [user, setUser] = useState("");
   const navigate = useNavigate();
   Axios.defaults.withCredentials = true;
   useEffect(() => {
     Axios.get("http://localhost:5000").then((res) => {
-      if (res.data.admin === false) {
+      if (res.data.admin === true) {
         console.log("home page user: " + res.data.userData);
         setUser(res.data.userData);
       } else if (res.data.admin === null) {
@@ -21,9 +21,9 @@ function Home() {
 
   return (
     <div>
-      <Navbar data={user} />
-
-      <header className="bg-blue-300">
+    <Mentornavbar data={user}/>
+      
+    <header className="bg-blue-300">
         <div className="flex">
           <div className="p-8 text-white rounded-2xl mr-28 w-1/2">
             <p className="text-2xl font-bold">

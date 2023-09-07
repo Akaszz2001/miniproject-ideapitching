@@ -1,7 +1,7 @@
 const Promise = require("promise");
 
 const conn = require("../dbConnection/connection");
-const [checkUser] = require("../querries");
+const {checkUser} = require("../querries");
 const bcrypt = require("bcrypt");
 
 function Login(email, pwd) {
@@ -15,8 +15,8 @@ function Login(email, pwd) {
           if (err) {
             throw err;
           } else {
-            console.log("user data server side:"+result[0].email);
-            resolve([result[0].name,res])
+            console.log("id from login helpetr "+result[0].id);
+            resolve([result[0],res])
           }
         });
       }

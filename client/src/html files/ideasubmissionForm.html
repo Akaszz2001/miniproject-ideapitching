@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea submission Form</title>
+    <link rel="stylesheet" href="../input.css">
+    <link rel="stylesheet" href="../../dist/output.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-10">
+        <h1 class="text-3xl font-bold mb-6">Idea submission Form</h1>
+        <form action="/submit" method="post" enctype="multipart/form-data" class="bg-white p-6 shadow-md rounded-md">
+            <div class="mb-4">
+                <label for="fullName" class="block font-bold">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required class="w-full border border-gray-300 rounded-md p-2">
+            </div>
+
+            <div class="mb-4">
+                <label for="studentId" class="block font-bold">Student ID:</label>
+                <input type="text" id="studentId" name="studentId" required class="w-full border border-gray-300 rounded-md p-2">
+            </div>
+
+            <div class="mb-4">
+                <label for="department" class="block font-bold">Department:</label>
+                <select id="department" name="department" required class="w-full border border-gray-300 rounded-md p-2">
+                    <option value="">Select Department</option>
+                    <option value="IT">IT</option>
+                    <option value="CS">CS</option>
+                    <option value="CS">EC</option>
+                    <option value="CS">ME</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="pdfAttachment" class="block font-bold">Attach PDF:</label>
+                <input type="file" id="pdfAttachment" name="pdfAttachment" accept=".pdf" class="w-full border border-gray-300 rounded-md p-2">
+            </div>
+
+            <div class="mb-4">
+                <label for="message" class="block font-bold">Describe your Idea :</label>
+                <textarea id="message" name="message" required class="w-full border border-gray-300 rounded-md p-2"></textarea>
+            </div>
+
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

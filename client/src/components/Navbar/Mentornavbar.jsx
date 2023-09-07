@@ -17,8 +17,8 @@ const logout=()=>{
   }
 }
   return (
-    <div >
-      <nav className="p-3 bg-cyan-200 shadow md:flex md:items-center md:justify-between sticky">
+    <div>
+      <nav className="p-3 bg-cyan-200 shadow md:flex md:items-center md:justify-between">
         <div className="flex justify-between items-center">
           <a href="/"><span className="text-2xl font-[Poppins] font-extrabold italic">
             <img
@@ -34,13 +34,8 @@ const logout=()=>{
         </div>
       {user ?  <ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
       <li className="mx-4 my my-6 md:my-0">
-            <a href="/ideaPosting" className="text-xl hover:text-cyan-500 duration-500">
-              Post Ideas
-            </a>
-          </li>
-      <li className="mx-4 my my-6 md:my-0">
-            <a href="/userIdeas" className="text-xl hover:text-cyan-500 duration-500">
-              My Ideas
+            <a href="/requests" className="text-xl hover:text-cyan-500 duration-500">
+              Requests
             </a>
           </li>
           <li className="mx-4 my my-6 md:my-0">

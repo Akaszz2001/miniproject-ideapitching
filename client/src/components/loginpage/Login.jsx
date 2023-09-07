@@ -1,40 +1,47 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
-import Axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 function Login() {
-  const [email,setEmail]=useState("")
-  const [pwd,setPwd]=useState("")
-  const navigate=useNavigate()
-  
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+  const navigate = useNavigate();
 
-  Axios.defaults.withCredentials=true
-  useEffect(()=>{
-    Axios.get('http://localhost:5000').then(res=>{
-      if(res.data.valid===true){
-        console.log("home page user: "+res.data.userData);
-          navigate('/')
-      }else if(res.data.valid===false){
+  Axios.defaults.withCredentials = true;
+  useEffect(() => {
+    Axios.get("http://localhost:5000").then((res) => {
+      if (res.data.admin === true) {
+        console.log("home page user: " + res.data.userData);
+        navigate("/admin");
+      } else if (res.data.admin === false) {
+        navigate("/");
+      }else if(res.data.admin===null){
         navigate('/login')
       }
-    })
-  })
-  const send=(e)=>{
-    e.preventDefault()  
-      Axios.post("http://localhost:5000/login",{
-        email:email,
-        password:pwd
-      }).then(res=>{ 
-       if(res.data.Login===true){
-        alert("sucessfully logined")
-          navigate('/') 
-       }else if(res.data.Login===false){
-        alert("Password is mismatch")
-       }else if(res.data.Message){
-        alert("email not exist")
-       }
-      })
-  }
+    });
+  });
+  const send = (e) => {
+    e.preventDefault();
+    Axios.post("http://localhost:5000/login", {
+      email: email,
+      password: pwd,
+    }).then((res) => {
+      if (res.data.adminStatus === false) {
+          alert("sucessfully logined");
+          
+       
+      } else if(res.data.adminStatus === true ){
+          
+          alert("Admin loggined sucessfully");
+         
+       
+      } else if (res.data.Login === false) {
+        alert("Password is mismatch");
+      } else if (res.data.Message) {
+        alert("email not exist");
+      }
+    });
+  };
   return (
     <div>
       <Navbar />
@@ -50,8 +57,8 @@ function Login() {
                   className="block border border-grey-light w-full p-3 rounded mb-4"
                   name="email"
                   placeholder="Email"
-                  onChange={(e)=>{
-                    setEmail(e.target.value)
+                  onChange={(e) => {
+                    setEmail(e.target.value);
                   }}
                 />
 
@@ -60,8 +67,8 @@ function Login() {
                   className="block border border-grey-light w-full p-3 rounded mb-4"
                   name="password"
                   placeholder="Password"
-                  onChange={(e)=>{
-                    setPwd(e.target.value)
+                  onChange={(e) => {
+                    setPwd(e.target.value);
                   }}
                 />
 

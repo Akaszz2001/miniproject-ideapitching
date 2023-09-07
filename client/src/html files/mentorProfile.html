@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../input.css">
+    <link rel="stylesheet" href="../../dist/output.css">
+    <title>Profile</title>
+</head>
+<body class="bg-gradient-to-r from-indigo-200 to-purple-400 min-h-screen">
+    <!-- navbar starts here -->
+    <nav class="sticky top-0 z-50 w-full bg-gray-200">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative flex h-16 items-center justify-between">
+            <div class="">
+                <i class="fas fa-lightbulb text-indigo-500 fa-2xl"></i>
+            </div>
+            <div class="hidden lg:inline">
+                
+                <div class="inline-flex ml-auto text-center font-semibold font-serif mr-8 text-sm sm:text-xl mx-2 items-center justify-center rounded-md p-2 hover:bg-gray-700 hover:text-white cursor-pointer">
+                    <a href="./Requests.html"><p>Requests</p></a>
+                </div>
+                <div class="inline-flex font-semibold font-serif text-sm sm:text-xl mx-2 justify-end rounded-md p-2 bg-blue-400 hover:bg-sky-400 hover:text-white cursor-pointer">
+                    <button>Signout</button>
+                </div>
+            </div>
+            <div class="relative inline-block md:hidden">
+                <button id="hamburger-button" class="text-2xl cursor-pointer focus:outline-none">
+                    <span class="sr-only">Open Menu</span>
+                    <span class="block bg-gray-800 h-1 w-6 rounded-sm mb-1"></span>
+                    <span class="block bg-gray-800 h-1 w-6 rounded-sm mb-1"></span>
+                    <span class="block bg-gray-800 h-1 w-6 rounded-sm"></span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu hidden md:hidden" id="hamburger-menu">
+            <div class="p-2 bg-gray-300">
+                <div class="font-semibold text-sm mx-2 mb-2 hover:bg-gray-700 hover:text-white cursor-pointer">
+                    <a href="./Requests.html"><p>Requests</p></a>
+                </div>
+                <div class="font-semibold text-sm mx-2 mb-2 hover:bg-gray-700 hover:text-white cursor-pointer">
+                    <p>Signout</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar ends here -->
+
+    <div class="flex flex-col lg:flex-row mt-3">
+        <div class="lg:w-1/4 w-full bg-white p-10 justify-center sm:text-xl rounded-md">
+            <div class="mb-10 cursor-pointer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/1200px-OOjs_UI_icon_userAvatar.svg.png" alt="">
+            </div>
+            <div class="text-center font-serif font-semibold sm:text-2xl text-lg cursor-default">
+                <h1 class="">Name:</h1>
+                <h1>Staff Id</h1>
+            </div>
+        </div>
+        <input type="">
+        <div class="lg:w-3/4 w-full bg-indigo-300 p-10 mt-3 lg:mt-0 lg:ml-3 rounded-md">
+            <div class="sm:justify-center justify-normal font-serif font-semibold sm:text-2xl text-lg">
+                <h1 class="mb-4 cursor-default">Full Name:</h1>
+                <h1 class="mb-4 font-medium">Staff</h1>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <h1 class="cursor-default">ID:</h1>
+                        <p class="font-medium">123456</p>
+                    </div>
+                    <div>
+                        <h1 class="cursor-default">Email:</h1>
+                        <p class="font-medium">staff@xyz.com</p>
+                    </div>
+                </div>
+                <h1 class="mb-4 cursor-default">Address:</h1>
+                <p class="font-medium">A-1223, Ernakulam, Kerala 682022</p>
+                <button type="submit" class="border rounded-lg bg-red-300 p-2 mt-4 text-white hover:bg-red-500">Update</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+    
+        hamburgerButton.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

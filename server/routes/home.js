@@ -5,14 +5,15 @@ const router=express.Router()
 router.get('/',(req,res)=>{
     let user=req.session.user
     
-    console.log("user status:"+req.session.loggedIn);
-    console.log('session '+user);
+   
 
-    if(req.session.loggedIn){
+    if(req.session.Admin===1){
         console.log(req.session.loggedIn);
-        return res.json({valid:true,userData:req.session.user})
+        return res.json({admin:true,userData:req.session.user})
+    }else if(req.session.Admin===0){
+        return res.json({admin:false,userData:req.session.user})
     }else{
-        return res.json({valid:false})
+        return res.json({admin:null})
     }
    
 

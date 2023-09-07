@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../input.css">
+    <link rel="stylesheet" href="../../dist/output.css">
+    <script src="https://kit.fontawesome.com/a10294bbf4.js" crossorigin="anonymous"></script>
+    <title>Profile</title>
+</head>
+<body>
+  <div className="bg-gradient-to-r from-blue-200 to-blue-400 min-h-screen">
+    <!-- nav starts here -->
+    <div className="sticky top-0 z-50 w-full bg-gray-200">
+        <div className="border-2">
+            <nav className="p-1 bg-gray-300 overflow-hidden outline-none">
+                <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 relative flex h-16 items-center justify-between">
+                    <div className="">
+                        <i className="fa-solid fa-lightbulb fa-2xl"></i>
+                    </div>
+                    <div className="hidden lg:inline">
+                        <div className="inline-flex ml-12 font-semibold font-serif text-sm mx-2 items-center justify-center rounded-md sm:text-xl p-2 hover:bg-gray-700 hover:text-white cursor-pointer">
+                            <a href="./ideaSubmission.html">Idea Submission</a>
+                        </div>
+                        <div className="mt-3 inline-flex  ml-12 font-semibold font-serif text-sm sm:text-xl mx-2 items-center justify-center rounded-md p-2 hover:bg-gray-700 hover:text-white cursor-pointer">
+                            <p>Processed</p>
+                        </div>
+                        <div className="inline-flex ml-12 font-semibold font-serif text-sm sm:text-xl mx-2 items-center justify-center rounded-md p-2 hover:bg-gray-700 hover:text-white cursor-pointer">
+                            <p>Verified</p>
+                        </div>
+                        <div className="inline-flex font-semibold font-serif text-sm sm:text-xl mx-2 justify-end rounded-md p-2 bg-blue-400 hover:bg-sky-400 hover:text-white cursor-pointer">
+                            <button>Signout</button>
+                        </div>
+                    </div>
+                    <div className="relative inline-block md:hidden">
+                        <button id="hamburger-button" className="text-2xl cursor-pointer focus:outline-none">
+                            <span className="sr-only">Open Menu</span>
+                            <span className="block bg-gray-800 h-1 w-6 rounded-sm mb-1"></span>
+                            <span className="block bg-gray-800 h-1 w-6 rounded-sm mb-1"></span>
+                            <span className="block bg-gray-800 h-1 w-6 rounded-sm"></span>
+                        </button>
+                    </div>
+                </div>
+                <div className="mobile-menu hidden md:hidden" id="hamburger-menu">
+                    <div className="p-2 bg-gray-300">
+                        <div className="font-semibold text-sm mx-2 mb-2 hover:bg-gray-700 hover:text-white cursor-pointer">
+                            <a href="./ideaSubmission.html">Idea Submission</a>
+                        </div>
+                        <div className="font-semibold text-sm mx-2 mb-2 hover:bg-gray-700 hover:text-white cursor-pointer">
+                            <p>Processed</p>
+                        </div>
+                        <div className="font-semibold text-sm mx-2 mb-2 hover:bg-gray-700 hover:text-white cursor-pointer">
+                            <p>Verified</p>
+                        </div>
+                        <div className="font-semibold text-sm mx-2 mb-2 hover:bg-gray-700 hover:text-white cursor-pointer">
+                            <p>Signout</p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- nav ends here -->
+
+    <div className="flex flex-col lg:flex-row mt-3">
+        <div className="lg:w-1/4 w-full bg-white p-10 justify-center sm:text-xl rounded-md">
+            <div className="mb-10 cursor-pointer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/1200px-OOjs_UI_icon_userAvatar.svg.png" alt="">
+            </div>
+
+            <div className="text-center font-serif font-semibold sm:text-2xl text-lg cursor-default">
+                <h1 className="">Name:</h1>
+                <h1>Student Id</h1>
+                <h1>IT</h1>
+            </div>
+        </div>
+
+        <div className="lg:w-3/4 w-full bg-indigo-300 p-10 mt-3 lg:mt-0 lg:ml-3 rounded-md">
+            <div className="sm:justify-center justify-normal font-serif font-semibold sm:text-2xl text-lg">
+                <h1 className="mb-4 cursor-default">Full Name:</h1>
+                <h1 className="mb-4 font-medium">Omama Ashraf</h1>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <h1 className="cursor-default">ID:</h1>
+                        <p className="font-medium">123456</p>
+                    </div>
+                    <div>
+                        <h1 className="cursor-default">Email:</h1>
+                        <p className="font-medium">omama@xyz.com</p>
+                    </div>
+                </div>
+                <h1 className="mb-4 cursor-default">Address:</h1>
+                <p className="font-medium">A-1223, Ernakulam, Kerala 682022</p>
+                <button type="submit" className="border rounded-lg bg-red-300 p-2 mt-4 text-white hover:bg-red-500">Update</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <script>
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+
+    hamburgerButton.addEventListener('click', () => {
+        hamburgerMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
