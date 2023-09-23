@@ -6,6 +6,6 @@ const uploadFile='INSERT INTO studentIdeas(studentName,studentId,department,topi
 const requests='select * from studentIdeas'
 const addReview='UPDATE studentIdeas SET Reviews=? WHERE id=?'
 const bringIdeas="select * from studentIdeas where id=?"
-const deleteData='delete from studentIdeas where studentName=?'
+const deleteData='delete from studentIdeas where orderNO=?'
 
 module.exports={existUser,newUser,checkUser,userData,uploadFile,requests,addReview,bringIdeas,deleteData}
