@@ -13,7 +13,7 @@
         <form action="/submit" method="post" enctype="multipart/form-data" class="bg-white p-6 shadow-md rounded-md">
             <div class="mb-4">
                 <label for="fullName" class="block font-bold">Full Name:</label>
-                <input type="text" id="fullName" name="fullName" required class="w-full border border-gray-300 rounded-md p-2">
+                <input type="text" value="AKASH" id="fullName" onchange="change()" name="fullName" required class="w-full border border-gray-300 rounded-md p-2">
             </div>
 
             <div class="mb-4">
@@ -45,5 +45,12 @@
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
         </form>
     </div>
+    <script>
+       
+       function change(e){
+            alert("alert")
+        }
+
+    </script>
 </body>
 </html>

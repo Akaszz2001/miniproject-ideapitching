@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function Userideas() {
   const [ideas, setIdeas] = useState([]);
   const navigate = useNavigate();
-  const [dataTosend, setDataTosend] = useState({});
+
   const [user, setUser] = useState("");
   const [uid, setUid] = useState("");
   Axios.defaults.withCredentials = true;
@@ -39,22 +39,16 @@ function Userideas() {
     Axios.get("http://localhost:5000/ideaSubmission/ideas")
       .then((response) => {
         setIdeas(response.data);
-        setDataTosend({
-          name: response.data.studentName,
-          studId: response.data.studentId,
-          dept: response.data.department,
-          title: response.data.topicTitle,
-          desc: response.data.topicDescription,
-        });
-        console.log(response.data);
+       
+        
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   };
 
-  const updateData = () => {
-    navigate("/editIdea", { state: dataTosend });
+  const updateData = (orderNO) => {
+   navigate("/editIdea", { state:orderNO});
   };
 
   return (
@@ -100,7 +94,11 @@ function Userideas() {
                     </button>
                   </td>
                   <td className="border border-gray-300 p-2">
-                    <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                    <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+                    onClick={()=>{
+                      updateData(row.orderNO)
+                    }}
+                    >
                       Edit
                     </button>
                   </td>

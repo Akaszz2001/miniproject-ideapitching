@@ -15,7 +15,7 @@ function Ideaposting() {
 
   const [user, setUser] = useState("");
  
-  Axios.defaults.withCredentials = true;
+          Axios.defaults.withCredentials = true;
   useEffect(() => {
     Axios.get("http://localhost:5000").then((res) => {
       if (res.data.admin === false) {
@@ -28,15 +28,7 @@ function Ideaposting() {
     });
   });
 
-  // useEffect(() => {
-  //   Axios.get("http://localhost:cd erver5000/ideaSubmission").then((res) => {
-  //     if (res.data.admin === false) {
-  //       navigate("/ideaPosting");
-  //     } else if(res.data.admin === null) {
-  //       navigate("/login");
-  //     }
-  //   });
-  // });
+
   const uploadData = () => {
       console.log(dept);
     Axios.post("http://localhost:5000/ideaSubmission", {
