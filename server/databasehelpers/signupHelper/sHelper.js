@@ -16,7 +16,7 @@ const signup = (name, email, pass) => {
         if (res[0] == null) {
           const uId = randomBytes(16).toString("hex");
           const hPass = await bcrypt.hash(pass, saltRounds);
-          conn.query(newUser,[uId, name, email, hPass, false], (err, res) => {
+          conn.query(newUser,[uId, name, email, hPass, trueG], (err, res) => {
             if (err) {
               return err;
             } else {

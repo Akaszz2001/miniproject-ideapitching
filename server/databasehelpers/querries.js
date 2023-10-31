@@ -7,5 +7,6 @@ const requests='select * from studentIdeas'
 const addReview='UPDATE studentIdeas SET Reviews=? WHERE id=?'
 const bringIdeas="select * from studentIdeas where id=?"
 const deleteData='delete from studentIdeas where orderNO=?'
-
-module.exports={existUser,newUser,checkUser,userData,uploadFile,requests,addReview,bringIdeas,deleteData}
+const idea='select * from studentideas where orderNO=?'
+const updateIdeas='UPDATE studentideas SET studentName=?,studentId=?,department=?,topicTitle=?,topicDescription=? WHERE orderNO=?'
+module.exports={existUser,newUser,checkUser,userData,uploadFile,requests,addReview,bringIdeas,deleteData,idea,updateIdeas}

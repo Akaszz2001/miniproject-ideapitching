@@ -15,7 +15,7 @@ const cors = require("cors");
 app.use(
   cors({
     origin: ["http://localhost:3000"],
-    methods: ["POST", "GET","DELETE"],
+    methods: ["POST", "GET","DELETE","PUT"],
     credentials: true,
   })
 );
@@ -71,9 +71,10 @@ app.use("/login", require("./routes/login"));
 app.use("/signup", require("./routes/signup"));
 app.use("/logout", require("./routes/logout"));
 app.use("/user", require("./routes/user"));
-app.use("/ideaSubmission", verifyStudent, require("./routes/ideaPosting"));
+app.use("/ideaSubmission",require("./routes/ideaPosting"));
 app.use("/mentor", require("./routes/mentor"));
 //server local port
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
+
