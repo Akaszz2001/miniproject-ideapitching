@@ -21,10 +21,10 @@ router.get('/requests',(req,res)=>{
 
 router.post('/review',(req,res)=>{
     const rev=req.body.menReview
-    const id=req.body.studId
+    const oNum=req.body.orderNum
     console.log(rev);
-    console.log(id);
-    conn.query(addReview,[rev,id],(err,result,fields)=>{
+   
+    conn.query(addReview,[rev,oNum],(err,result,fields)=>{
        if(result.affectedRows!=0){
         return res.json({Message:true})
        }else if(err){
